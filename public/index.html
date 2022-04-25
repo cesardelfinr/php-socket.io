@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket IO</title>
+</head>
+<body>
+    <style>
+        #cont_mensajes {
+            width: 50%; background: aqua; 
+            border: solid 2px black;
+        }
+        p {
+            background: white; 
+            padding: 5px; 
+            border: solid 1px black;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <h3>Ingresar</h3>
+    
+    <form accept-charset="utf-8" id="login_form">
+        <input type="text" name="correo" id="correo" placeholder="Correo" value="">
+        <input type="text" name="usuario" id="usuario" placeholder="Usuario" value="">
+        <input type="button" name="" value="Entrar" onclick="ingresar()">
+    </form>
+    <br>
+    <hr> 
+    <br><br>
+    
+    <div id="cont_mensajes">
+
+    </div>
+    <br>
+    <div style="display: flex; justify-content: flex-start; align-items: center;" >
+        <textarea name="" id="mensaje" placeholder="Mensaje" style=" width: 500px;"></textarea>
+        <button type="" id="enviar_mensaje" style="height: 100%; background: green; color: white; padding: 10px;" onclick="enviar_mens()">Enviar</button>
+    </div>
+    
+    
+    <h1>Socket.io</h1>
+    
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="funciones_socket.js"></script>
+    <script>
+        function ingresar(){
+            correo = $('#login_form #correo').val();
+            usuario = $('#login_form #usuario').val();
+            loguear(correo, usuario);
+        }
+        function enviar_mens(){
+            mensaje = $('#mensaje').val();
+            enviar_msj(usuario, mensaje);
+        }
+    </script>
+</body>
+</html>
